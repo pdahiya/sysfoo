@@ -8,21 +8,18 @@ pipeline {
           steps{
               echo "compile"
               sh 'mvn compile'
-              sleep 1
           }
       }
       stage("test"){
           steps{
             echo "test"
               sh 'mvn clean test'
-              sleep 1
           }
       }
       stage("package"){
           steps{
             echo "package"
               sh 'mvn package -DskipTests'
-              sleep 1
           }
       }
   }
