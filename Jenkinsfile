@@ -26,7 +26,12 @@ pipeline {
         sh 'mvn clean test'
       }
     }
-
+    stage('Parallel Stage') {
+            when {
+                branch 'master'
+            }
+      failFast true
+            parallel {
     stage('package') {
       agent {
         docker {
@@ -54,7 +59,7 @@ pipeline {
 
       }
     }
-
+    }}
   }
   tools {
     maven 'Maven 3.6.3'
