@@ -40,12 +40,6 @@ pipeline {
       }
     }
 
-    stage('archive') {
-      steps {
-        archiveArtifacts 'target/*.war'
-      }
-    }
-
     stage('Docker BnP') {
       agent {
         docker {
